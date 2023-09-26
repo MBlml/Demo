@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Touchable, TouchableOpacity,  Modal, TextInput  } from 'react-native';
+import { View, Text, StyleSheet, Image, Touchable, TouchableOpacity,  Modal, TextInput, Alert } from 'react-native';
 import { NavigationContext } from '@react-navigation/native';
 
 //la importacion de lo que usemos
@@ -47,8 +47,10 @@ export default class Inicio extends Component {
         xhttp.open("GET", "https://mbdevpi1.000webhostapp.com/verifica.php?correo=" + this.state.correo + "&password=" + this.state.password, true);
         xhttp.send();
 
-        console.log("datos nombre= " + this.state.nombre + " &correo= " + this.state.correo + " &password= " + this.state.password);
+        console.log("datos correo= " + this.state.correo + " password= " + this.state.password);
         navigation.navigate("Menu",{nombre:"Manuel Barajas"});
+        /* navigation.navigate("Menu",{nombre:xhttp.responseText}); */
+        
         cierraModal();
     }
 
@@ -265,6 +267,7 @@ const styles = StyleSheet.create({
     },
     txtInput: {
         backgroundColor: "white",
+        color: "black",
         borderWidth: 2,
         width: 300,
         height: 40,

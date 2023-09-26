@@ -65,6 +65,7 @@ export default class Inscripcion extends Component {
             <Text style={{fontSize: 18,
                           marginTop: 8,
                           textAlign: "center",
+                          color: "blue",
                         }}>Inscribir con Facebook</Text>
         </TouchableOpacity>
         {/*Ventana Modal correo*/}
@@ -131,6 +132,7 @@ const styles = StyleSheet.create({
     },
     txtInput: {
         backgroundColor: "white",
+        color: "black",
         borderWidth: 2,
         width: 300,
         height: 40,
@@ -142,6 +144,7 @@ const styles = StyleSheet.create({
     titulo: {
         fontSize: 40,
         textAlign: "center",
+        color: "black",
     },
 
 })
