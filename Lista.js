@@ -19,7 +19,8 @@ export default class Lista extends Component {
         <FlatList
         padding= {10}
         data = {this.state.dataSourse}
-        renderItem={({item}) => <Item titñe={item.Nombre}/>}     
+        renderItem={({item}) => <Item titñe={item.Nombre}/>}  
+        //Pendiente de revisar el lunes   
         />
       </View>
     );
