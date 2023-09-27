@@ -20,14 +20,14 @@ export default class Menu extends Component {
     return (
       <Tab.Navigator>
         <Tab.Screen
-          name="Inicio"
+          name="Home"
           component={TAB1}
           initialParams={{ nombre: this.props.route.params.nombre }}
           //Material Icons
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="home" color={color} size={size} />
+              <MaterialCommunityIcons name="home" color={"red"} size={size} />
             ),
           }} 
 
@@ -46,7 +46,7 @@ export default class Menu extends Component {
           options={{
             tabBarLabel: 'Tab2',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="alert-box" color={color} size={size} />
+              <MaterialCommunityIcons name="alert-box" color={"red"} size={size} />
             ),
           }} 
 
