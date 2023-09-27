@@ -27,8 +27,8 @@ export default class Tab1 extends Component {
         );
       };
 
+  //Pantalla de Tab1
   render() {
-
     return (
     <View style={styles.container}>
         <MenuDrawer
@@ -44,6 +44,7 @@ export default class Tab1 extends Component {
             <Image  style={styles.imgMenu} source={require('./imagenes/drawer.png')} />
           </TouchableOpacity>
         </MenuDrawer>
+
       </View>
     );
   }
@@ -76,10 +77,11 @@ const styles = StyleSheet.create({
       /* flex: 1, */
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'white',
     },
     imgMenu: {
         marginLeft: 340,
+        height: 40,
+        width: 40,
     }
   })
 
