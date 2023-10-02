@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image,  Modal, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image,  Modal, TextInput, FlatList} from 'react-native';
 import MenuDrawer from 'react-native-side-drawer'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //-> npm install @react-navigation/bottom-tabs
@@ -9,6 +9,7 @@ export default class Tab1 extends Component {
       super(props);
       this.state = {
         open: false,
+        dataSource: [],
       };
     }
 
@@ -26,6 +27,21 @@ export default class Tab1 extends Component {
           </View>
         );
       };
+
+  componentDidMount() {
+    var xhttp = new XMLHttpRequest();
+    _this = this;
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       console.log(xhttp.responseText);
+       var Temp = JSON.parse(xhttp.responseText);
+       _this.setState({dataSource:Temp});
+    }
+  };
+xhttp.open("GET", "https://dcc2.000webhostapp.com/2023B/datos.json", true);
+xhttp.send();
+  }
 
   //Pantalla de Tab1
   render() {
@@ -45,6 +61,28 @@ export default class Tab1 extends Component {
           </TouchableOpacity>
         </MenuDrawer>
 
+        <View style={{marginTop: 20, backgroundColor:"gray"}}>
+          <Text style={{color: "black", fontSize: 30,}}>Lista de Trabajadores</Text>
+          <FlatList
+            data={this.state.dataSource}
+            renderItem={({item}) => 
+            <View style={{height:300}}>
+              <Text style={{color: "black", marginTop: 15}}>{item.Nombre}</Text>
+              <Text style={{color: "black", marginTop: 15}}>{item.Profesion}</Text>
+              <Text style={{color: "black", marginTop: 15}}>{item.Telefono}</Text>
+              <View>
+                <Image 
+                style={{width:150, height:150,}}
+                source={{uri:(item.Imagen)}}
+                />
+              </View>
+              <TouchableOpacity>Hola</TouchableOpacity>
+              <View style={{width:300,height:3,backgroundColor:"gray",marginTop:4}}></View>
+            </View>
+          }
+          />
+          
+        </View>
       </View>
     );
   }
@@ -52,36 +90,40 @@ export default class Tab1 extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: "#fff",
-      color: "white",
+    //  flex: 1,
+      backgroundColor: "#gray",
       alignItems: "center",
       justifyContent: "center",
+      marginTop: 0,
       zIndex: 0,
+      color: "white",
     },
     //Menu desplegable
     animatedBox: {
-      flex: 1,
+      //flex: 1,
       backgroundColor: "black",
       color: "red",
       padding: 10,
-      marginTop: 60,
+      marginTop: 65,
+      height: 700,
+      width: 150,
     },
     txtClose: {
         marginTop: 1,
-        marginTop: 230,
+        marginTop: 220,
         color: "red",
         fontWeight: "bold",
     },
     body: {
-      /* flex: 1, */
+      // flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
     },
     imgMenu: {
-        marginLeft: 340,
-        height: 40,
-        width: 40,
+        marginLeft: 360,
+        marginTop: 40,
+        height: 30,
+        width: 30,
     }
   })
 
