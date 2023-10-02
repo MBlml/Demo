@@ -66,26 +66,39 @@ export default class Tab1 extends Component {
           </TouchableOpacity>
         </MenuDrawer>
 
-        <View style={{ marginTop: 20}}>
-          <Text style={{ color: 'black', fontSize: 30 }}>Lista de Trabajadores</Text>
-          <FlatList
-            data={this.state.dataSource}
-            renderItem={({ item }) => (
+        <View style={{ marginTop: 20 }}>
+        <Text style={{ color: 'black', fontSize: 30 }}>Lista de Trabajadores</Text>
+        <FlatList
+          data={this.state.dataSource}
+          renderItem={({ item }) => (
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 15 }}>
               <View>
-                <Text style={{ color: 'black', marginTop: 15 }}>Nombre: {item.Nombre}</Text>
-                <Text style={{ color: 'black', marginTop: 15 }}>Profesion: {item.Profesion}</Text>
-                <Text style={{ color: 'black', marginTop: 15 }}>Telefono: {item.Telefono}</Text>
-                <View>
-                  <Image
-                    style={{ width: 150, height: 150 }}
-                    source={{ uri: item.Imagen }}
-                  />
-                </View>
-                <View style={{ width: 300, height: 3, backgroundColor: 'gray', marginTop: 20 }}></View>
+                <Image
+                  style={{
+                    width: 150,
+                    height: 150,
+                    //borderColor: 'black',
+                    //borderWidth: 1,
+                    //borderRadius: 20,
+                  }}
+                  //source={{ uri: item.Imagen }} //Imagen del profesor
+                  source={{ uri: 'https://assets.stickpng.com/thumbs/585e4beacb11b227491c3399.png' }}
+                />
               </View>
-            )}
-          />
-        </View>
+              <View style={{ marginLeft: 20 }}>
+                <Text style={{ color: 'black' }}>{item.Nombre}</Text>
+                <Text style={{ color: 'black' }}>{item.Profesion}</Text>
+                <Text style={{ color: 'black' }}>{item.Telefono}</Text>
+              </View>
+            </View>
+          )}
+          ItemSeparatorComponent={() => (
+            <View style={{ height: 1, backgroundColor: 'gray', marginVertical: 10 }} />
+          )}
+        />
+      </View>
+
+
       </View>
     );
   }
