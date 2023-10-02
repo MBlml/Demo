@@ -5,7 +5,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import EvilIcons from 'react-native-vector-icons/EvilIcons'; // Cambiamos la importación
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-
 import TAB1 from "./Tab1";
 import TAB2 from "./Tab2";
 
@@ -30,14 +29,6 @@ export default class Menu extends Component {
               <MaterialCommunityIcons name="home" color={"red"} size={size} />
             ),
           }} 
-
-          //Evil Icons
-          /* options={{
-            tabBarLabel: 'Inicio',
-            tabBarIcon: ({ color, size }) => (
-              <EvilIcons name="sc-odnoklassniki" color={"black"} size={50} /> // Cambiamos a EvilIcons
-            ),
-          }} */
         />
         <Tab.Screen
           name="Tab2"
@@ -49,14 +40,6 @@ export default class Menu extends Component {
               <MaterialCommunityIcons name="alert-box" color={"red"} size={size} />
             ),
           }} 
-
-          //Evil Icons
-          /* options={{
-            tabBarLabel: 'Video',
-            tabBarIcon: ({ color, size }) => (
-              <EvilIcons name="sc-youtube" color={"black"} size={50} /> // Cambiamos a otro icono de EvilIcons
-            ),
-          }} */
         />
       </Tab.Navigator>
     );
