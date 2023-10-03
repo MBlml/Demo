@@ -31,15 +31,8 @@ export default class Menu extends Component {
               <MaterialCommunityIcons name="home" color={"black"} size={size} />
             ),
           }} 
-
-          //Evil Icons
-           /* options={{
-            tabBarLabel: 'Inicio',
-            tabBarIcon: ({ color, size }) => (
-              <EvilIcons name="user" color={"black"} size={45} /> // Cambiamos a EvilIcons
-            ),
-          }}  */
         />
+
         <Tab.Screen
           name="Tab2"
           component={TAB2}
@@ -50,15 +43,8 @@ export default class Menu extends Component {
               <MaterialCommunityIcons name="alert-box" color={"black"} size={size} />
             ),
           }} 
-
-          //Evil Icons
-          /* options={{
-            tabBarLabel: 'Mesagge',
-            tabBarIcon: ({ color, size }) => (
-              <EvilIcons name="comment" color={"black"} size={45} /> // Cambiamos a otro icono de EvilIcons
-            ),
-          }}  */
         />
+
       </Tab.Navigator>
     );
   }

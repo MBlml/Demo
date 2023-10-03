@@ -11,7 +11,8 @@ export default class Tab2 extends Component {
   render() {
     return (
       <View>
-        <Text> Tab2 </Text>
+        <Text style={{color: 'black', fontSize: 30, fontWeight: 'bold', textAlign: 'center'}}> Tab2 </Text>
+        
       </View>
     );
   }
