@@ -84,12 +84,12 @@ export default class Tab1 extends Component {
         </MenuDrawer>
 
         <View style={{ marginTop: 0, marginBottom: 10}}>
-        <Text style={{ color: 'black', fontSize: 30, fontWeight: 'bold', marginLeft: 30 }}>Lista de Trabajadores</Text>
-        <FlatList style={{backgroundColor: "gray", marginTop: 10, width: 350}}
+        <Text style={{ color: 'black', fontSize: 30, fontWeight: 'bold', marginLeft: 50 }}>Lista de Trabajadores</Text>
+        <FlatList style={{backgroundColor: "black", marginTop: 10, width: 380}}
           data={this.state.dataSource}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Perfil', { item })}
-            style={{ flexDirection: 'row', alignItems: 'center', marginTop: 15}}>
+            style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10}}>
               <View>
                 <Image
                   style={{
@@ -105,15 +105,15 @@ export default class Tab1 extends Component {
                 />
               </View>
               <View style={{ marginLeft: 15 }}>
-                <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 18}}>{item.Nombre}</Text>
-                <Text style={{ color: 'black' }}>{item.Profesion}</Text>
-                <Text style={{ color: 'black' }}>{item.Telefono}</Text>
+                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20}}>{item.Nombre}</Text>
+                <Text style={{ color: 'white', fontSize: 16 }}>{item.Profesion}</Text>
+                <Text style={{ color: 'white', fontSize: 16 }}>✆ {item.Telefono}</Text>
               </View>
             </TouchableOpacity>
           )}
 
           ItemSeparatorComponent={() => (
-            <View style={{ height: 10, backgroundColor: 'white', marginVertical: 10 }} />
+            <View style={{ height: 8, backgroundColor: 'white', marginVertical: 10 }} />
           )}
         />
       </View>
