@@ -48,8 +48,8 @@ export default class Inicio extends Component {
         xhttp.send();
 
         console.log("datos correo= " + this.state.correo + " password= " + this.state.password);
-        navigation.navigate("Menu",{nombre:"Manuel Barajas"});
-        /* navigation.navigate("Menu",{nombre:xhttp.responseText}); */
+        /* navigation.navigate("Menu",{nombre:"Manuel Barajas"}); */
+        navigation.navigate("Menu",{nombre:xhttp.responseText});
         
         cierraModal();
     }
@@ -126,8 +126,8 @@ export default class Inicio extends Component {
                 borderWidth: 2,
                 borderColor: "#e27743",
                 backgroundColor: "#e27743",
-                marginLeft: 40,
-                marginTop: 380,
+                marginLeft: 30,
+                marginTop: 520,
                 width: 340,
                 height: 250,
                 borderRadius: 30,
@@ -148,7 +148,7 @@ export default class Inicio extends Component {
                     width: 120,
                     height: 40,
                     borderRadius: 40,
-                    marginLeft: 100,
+                    marginLeft: 95,
                     marginTop: 20,
                     marginBottom: 20,
                     padding: 5,
@@ -196,12 +196,13 @@ const styles = StyleSheet.create({
     }, imagen1: {
         width: 350,
         height: 370,
-        marginTop: 10,
-        marginLeft: 30, 
-        /* xiaomi
-        marginTop: 120, 
-        width: 400,
-        height: 420, */ 
+        // marginTop: 10,
+        //marginLeft: 30,
+        //xiaomi 
+        marginTop: 20, 
+        marginLeft: -20,
+        width: 450,
+        height: 500, 
     }, imagenEmail: {
         width: 20,
         height: 20,
@@ -214,7 +215,7 @@ const styles = StyleSheet.create({
         width: 340,
         height: 250,
         borderWidth: 2,
-        marginLeft: 40,
+        marginLeft: 30,
         borderColor: "#e27743",
         backgroundColor: "#e27743",
         borderRadius: 30,
