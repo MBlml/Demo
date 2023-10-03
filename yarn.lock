@@ -2000,6 +2000,15 @@
   dependencies:
     nanoid "^3.1.23"
 
+"@react-navigation/stack@^6.3.18":
+  version "6.3.18"
+  resolved "https://registry.npmjs.org/@react-navigation/stack/-/stack-6.3.18.tgz"
+  integrity sha512-jAXneaLAs57xvyMFkebEyGCZDyz90KnaN7fM9f5Bu+Gx3KnoppdNfT4drpmN/f5f32L0eXS4aRAvuDrFT1mFfw==
+  dependencies:
+    "@react-navigation/elements" "^1.3.19"
+    color "^4.2.3"
+    warn-once "^0.1.0"
+
 "@sideway/address@^4.1.3":
   version "4.1.4"
   resolved "https://registry.npmjs.org/@sideway/address/-/address-4.1.4.tgz"
@@ -6194,7 +6203,7 @@ react-is@^18.2.0:
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
-react-native-gesture-handler@^1.0.12, "react-native-gesture-handler@>= 1.5.0":
+react-native-gesture-handler@^1.0.12, "react-native-gesture-handler@>= 1.0.0", "react-native-gesture-handler@>= 1.5.0":
   version "1.10.3"
   resolved "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-1.10.3.tgz"
   integrity sha512-cBGMi1IEsIVMgoox4RvMx7V2r6bNKw0uR1Mu1o7NbuHS6BRSVLq0dP34l2ecnPlC+jpWd3le6Yg1nrdCjby2Mw==

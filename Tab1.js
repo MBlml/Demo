@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Modal, TextInput, FlatList } from 'react-native';
 import MenuDrawer from 'react-native-side-drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContext } from '@react-navigation/native';
 
 export default class Tab1 extends Component {
+  static contextType = NavigationContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +25,10 @@ export default class Tab1 extends Component {
           Bienvenido: {this.props.route.params.nombre}
         </Text>
         <TouchableOpacity onPress={this.toggleOpen} style={styles.txtClose}>
-          <Text style={styles.txtClose}>Close</Text>
+          <Text style={{marginTop: 500, color: 'red', fontWeight: 'bold', fontSize: 20 }}>Close</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={cerrarSesion} style={styles.txtClose}>
+          <Text style={{marginTop: 10, color: 'red', fontWeight: 'bold', fontSize: 20 }}>Cerrar sesion</Text>
         </TouchableOpacity>
       </View>
     );
@@ -35,7 +40,7 @@ export default class Tab1 extends Component {
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         // Typical action to be performed when the document is ready:
-        console.log(xhttp.responseText);
+        //console.log(xhttp.responseText);
         var Temp = JSON.parse(xhttp.responseText);
         _this.setState({ dataSource: Temp });
       }
@@ -50,6 +55,18 @@ export default class Tab1 extends Component {
 
   // Pantalla de Tab1
   render() {
+    const navigation = this.context;
+
+    abrirPerfil = () => {
+      console.log("Ha pulsado un perfil");
+      navigation.navigate("Perfil");
+    };
+
+    cerrarSesion = () => {
+      console.log("Ha cerrado sesion");
+      navigation.navigate("Inicio");
+    };
+
     return (
       <View style={styles.container}>
         <MenuDrawer
@@ -66,34 +83,37 @@ export default class Tab1 extends Component {
           </TouchableOpacity>
         </MenuDrawer>
 
-        <View style={{ marginTop: 20 }}>
-        <Text style={{ color: 'black', fontSize: 30 }}>Lista de Trabajadores</Text>
-        <FlatList
+        <View style={{ marginTop: 0, marginBottom: 10}}>
+        <Text style={{ color: 'black', fontSize: 30, fontWeight: 'bold', marginLeft: 30 }}>Lista de Trabajadores</Text>
+        <FlatList style={{backgroundColor: "gray", marginTop: 10, width: 350}}
           data={this.state.dataSource}
           renderItem={({ item }) => (
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 15 }}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Perfil', { item })}
+            style={{ flexDirection: 'row', alignItems: 'center', marginTop: 15}}>
               <View>
                 <Image
                   style={{
                     width: 150,
                     height: 150,
-                    //borderColor: 'black',
-                    //borderWidth: 1,
-                    //borderRadius: 20,
+                    marginLeft: 20,
+                    borderColor: 'black',
+                    borderWidth: 1,
+                    borderRadius: 20,
                   }}
-                  //source={{ uri: item.Imagen }} //Imagen del profesor
-                  source={{ uri: 'https://assets.stickpng.com/thumbs/585e4beacb11b227491c3399.png' }}
+                  source={{ uri: item.Imagen }} //Imagen del profesor
+                  //source={{ uri: 'https://assets.stickpng.com/thumbs/585e4beacb11b227491c3399.png' }}
                 />
               </View>
-              <View style={{ marginLeft: 20 }}>
-                <Text style={{ color: 'black' }}>{item.Nombre}</Text>
+              <View style={{ marginLeft: 15 }}>
+                <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 18}}>{item.Nombre}</Text>
                 <Text style={{ color: 'black' }}>{item.Profesion}</Text>
                 <Text style={{ color: 'black' }}>{item.Telefono}</Text>
               </View>
-            </View>
+            </TouchableOpacity>
           )}
+
           ItemSeparatorComponent={() => (
-            <View style={{ height: 1, backgroundColor: 'gray', marginVertical: 10 }} />
+            <View style={{ height: 10, backgroundColor: 'white', marginVertical: 10 }} />
           )}
         />
       </View>
@@ -117,23 +137,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     color: 'red',
     padding: 10,
-    marginTop: 65,
+    marginTop: 50,
     height: 700,
     width: 150,
-  },
-  txtClose: {
-    marginTop: 1,
-    marginTop: 220,
-    color: 'red',
-    fontWeight: 'bold',
   },
   body: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   imgMenu: {
-    marginLeft: 360,
-    marginTop: 40,
+    marginRight: 350,
+    marginTop: 42,
     height: 30,
     width: 30,
   },

@@ -5,7 +5,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import EvilIcons from 'react-native-vector-icons/EvilIcons'; // Cambiamos la importación
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-
 import TAB1 from "./Tab1";
 import TAB2 from "./Tab2";
 
@@ -20,43 +19,45 @@ export default class Menu extends Component {
     return (
       <Tab.Navigator>
         <Tab.Screen
-          name="Home"
+        
+          name="Inicio"
           component={TAB1}
           initialParams={{ nombre: this.props.route.params.nombre }}
           //Material Icons
-          /* options={{
-            tabBarLabel: 'Home',
+          options={{
+            //headerShown:false, 
+            tabBarLabel: 'Inicio',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="home" color={"red"} size={size} />
+              <MaterialCommunityIcons name="home" color={"black"} size={size} />
             ),
-          }}  */
+          }} 
 
           //Evil Icons
-           options={{
+           /* options={{
             tabBarLabel: 'Inicio',
             tabBarIcon: ({ color, size }) => (
               <EvilIcons name="user" color={"black"} size={45} /> // Cambiamos a EvilIcons
             ),
-          }} 
+          }}  */
         />
         <Tab.Screen
           name="Tab2"
           component={TAB2}
           //Material Icons
-          /* options={{
-            tabBarLabel: 'Tab2',
+          options={{
+            tabBarLabel: 'Notificacion',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="alert-box" color={"red"} size={size} />
+              <MaterialCommunityIcons name="alert-box" color={"black"} size={size} />
             ),
-          }}  */
+          }} 
 
           //Evil Icons
-          options={{
+          /* options={{
             tabBarLabel: 'Mesagge',
             tabBarIcon: ({ color, size }) => (
               <EvilIcons name="comment" color={"black"} size={45} /> // Cambiamos a otro icono de EvilIcons
             ),
-          }} 
+          }}  */
         />
       </Tab.Navigator>
     );
