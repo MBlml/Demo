@@ -1,32 +1,77 @@
-import React from 'react';
-import { View, Text, Image } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
-function Perfil({ route }) {
-  const { item } = route.params;
+export default class Perfil extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  return (
-    <View style={{backgroundColor: 'black'}}>
-      <Image
-        style={{ width: 300, height: 300, marginTop: 60, marginLeft: 50, 
-                alignItems: 'center', borderWidth: 2, borderColor: 'black', borderRadius: 20,}}
-        source={{ uri: item.Imagen }}
-      />
+  render() {
+    const { route } = this.props;
+    const { item } = route.params;
 
-      <View style={{ marginTop: 30, alignItems: 'center'}}>
-        <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 40 }}>{item.Nombre}</Text>
-        <Text style={{ color: 'white', fontSize: 30 }}>{item.Profesion}</Text>
-        <Text style={{ color: 'white', fontSize: 30, marginTop: 30 }}>✆{item.Telefono}</Text>
+    return (
+      <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={{ uri: item.Imagen }}
+        />
+
+        <View style={styles.textContainer}>
+          <Text style={styles.name}>{item.Nombre}</Text>
+          <Text style={styles.profession}>{item.Profesion}</Text>
+          <Text style={styles.phone}>✆ {item.Telefono}</Text>
+        </View>
+
+        <View style={styles.starContainer}>
+          <Text style={styles.rating}>★★★★☆</Text>
+        </View>
       </View>
-
-      {/*Estrellas de evaluacion opcionales*/}
-      <View style={{ marginTop: 30, alignItems: 'center'}}>
-        <Text style={{ color: 'yellow', fontSize: 50,}}>
-        ★★★★☆
-        </Text>
-      </View>
-      
-    </View>
-  );
+    );
+  }
 }
 
-export default Perfil;
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'black',
+    alignItems: 'center',
+    flex: 1,
+  },
+  image: {
+    width: 300,
+    height: 300,
+    marginTop: 60,
+    marginLeft: 50,
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'black',
+    borderRadius: 20,
+  },
+  textContainer: {
+    marginTop: 30,
+    alignItems: 'center',
+  },
+  name: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 40,
+  },
+  profession: {
+    color: 'white',
+    fontSize: 30,
+  },
+  phone: {
+    color: 'white',
+    fontSize: 30,
+    marginTop: 30,
+  },
+  starContainer: {
+    marginTop: 30,
+    alignItems: 'center',
+  },
+  rating: {
+    color: 'yellow',
+    fontSize: 50,
+  },
+});
