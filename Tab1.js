@@ -25,10 +25,10 @@ export default class Tab1 extends Component {
           Bienvenido: {this.props.route.params.nombre}
         </Text>
         <TouchableOpacity onPress={this.toggleOpen} style={styles.txtClose}>
-          <Text style={{marginTop: 500, color: 'red', fontWeight: 'bold', fontSize: 20 }}>Close</Text>
+          <Text style={{ marginTop: 500, color: 'red', fontWeight: 'bold', fontSize: 20 }}>Close</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={cerrarSesion} style={styles.txtClose}>
-          <Text style={{marginTop: 10, color: 'red', fontWeight: 'bold', fontSize: 20 }}>Cerrar sesion</Text>
+        <TouchableOpacity onPress={this.cerrarSesion} style={styles.txtClose}>
+          <Text style={{ marginTop: 10, color: 'red', fontWeight: 'bold', fontSize: 20 }}>Cerrar sesion</Text>
         </TouchableOpacity>
       </View>
     );
@@ -39,8 +39,6 @@ export default class Tab1 extends Component {
     _this = this;
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        // Typical action to be performed when the document is ready:
-        //console.log(xhttp.responseText);
         var Temp = JSON.parse(xhttp.responseText);
         _this.setState({ dataSource: Temp });
       }
@@ -53,19 +51,19 @@ export default class Tab1 extends Component {
     xhttp.send();
   }
 
-  // Pantalla de Tab1
+  abrirPerfil = (item) => {
+    console.log("Ha pulsado un perfil");
+    // Navega a la pantalla Perfil y pasa los datos del trabajador como parámetro
+    this.props.navigation.navigate('Perfil', { item });
+  };
+
+  cerrarSesion = () => {
+    console.log("Ha cerrado sesion");
+    this.props.navigation.navigate('Inicio');
+  };
+
   render() {
     const navigation = this.context;
-
-    abrirPerfil = () => {
-      console.log("Ha pulsado un perfil");
-      navigation.navigate("Perfil");
-    };
-
-    cerrarSesion = () => {
-      console.log("Ha cerrado sesion");
-      navigation.navigate("Inicio");
-    };
 
     return (
       <View style={styles.container}>
@@ -83,13 +81,13 @@ export default class Tab1 extends Component {
           </TouchableOpacity>
         </MenuDrawer>
 
-        <View style={{ marginTop: 0, marginBottom: 10}}>
-        <Text style={{ color: 'black', fontSize: 30, fontWeight: 'bold', marginLeft: 50 }}>Lista de Trabajadores</Text>
-        <FlatList style={{backgroundColor: "black", marginTop: 10, width: 380}}
-          data={this.state.dataSource}
-          renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Perfil', { item })}
-            style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10}}>
+        <View style={{ marginTop: 0, marginBottom: 10 }}>
+          <Text style={{ color: 'black', fontSize: 30, fontWeight: 'bold', marginLeft: 50 }}>Lista de Trabajadores</Text>
+          <FlatList style={{ backgroundColor: "black", marginTop: 10, width: 380 }}
+            data={this.state.dataSource}
+            renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => this.abrirPerfil(item)}
+              style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10 }}>
               <View>
                 <Image
                   style={{
@@ -117,11 +115,9 @@ export default class Tab1 extends Component {
           )}
         />
       </View>
-
-
-      </View>
-    );
-  }
+    </View>
+  );
+}
 }
 
 const styles = StyleSheet.create({
