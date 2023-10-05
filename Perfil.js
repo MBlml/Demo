@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   rating: {
-    color: 'yellow',
+    color: 'white',
     fontSize: 50,
   },
 });

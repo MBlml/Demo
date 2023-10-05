@@ -1967,6 +1967,14 @@
   resolved "https://registry.npmjs.org/@react-navigation/elements/-/elements-1.3.19.tgz"
   integrity sha512-7hLvSYKPuDS070pza5gd43WDX7QgfuEmuTWNbCJhKdWlLudYmq3qzxGCBwCfO2dEI6+p8tla5wruaWiGKAbTYw==
 
+"@react-navigation/material-top-tabs@^6.6.4":
+  version "6.6.4"
+  resolved "https://registry.npmjs.org/@react-navigation/material-top-tabs/-/material-top-tabs-6.6.4.tgz"
+  integrity sha512-vl0YaUHVPk0Cmv+yBE5b811+jVgr8f0x5czZVwAyFaluedNgzBg9ybj9oo8GzjwfyOFJQwq8dpH/NV6EYi/LdQ==
+  dependencies:
+    color "^4.2.3"
+    warn-once "^0.1.0"
+
 "@react-navigation/native-stack@^6.9.14":
   version "6.9.14"
   resolved "https://registry.npmjs.org/@react-navigation/native-stack/-/native-stack-6.9.14.tgz"
@@ -6219,6 +6227,11 @@ react-native-iphone-x-helper@^1.3.0:
   resolved "https://registry.npmjs.org/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz"
   integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
 
+react-native-pager-view@*, "react-native-pager-view@>= 4.0.0":
+  version "6.2.1"
+  resolved "https://registry.npmjs.org/react-native-pager-view/-/react-native-pager-view-6.2.1.tgz"
+  integrity sha512-fZ8chez5J+w831nSnbtK8hwlCiMy1DgpFv8xG6ajXLsAI8uMkGvP554QDIDNlUoCuVwMf7OFyd32Y2Nm2Iaj9Q==
+
 react-native-reanimated@^1.0.0:
   version "1.13.4"
   resolved "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-1.13.4.tgz"
@@ -6252,6 +6265,13 @@ react-native-side-drawer@^2.1.0:
   integrity sha512-vw5DY0VwrFjYOxCNvANu1YPIfFKLpRtQd/EHTSyrcTmpkzKP3Px6jy7e3QWlE4W23F3kTJfTS2LEf2mYFiRHzQ==
   dependencies:
     prop-types "15.8.1"
+
+react-native-tab-view@^3.5.2, "react-native-tab-view@>= 3.0.0":
+  version "3.5.2"
+  resolved "https://registry.npmjs.org/react-native-tab-view/-/react-native-tab-view-3.5.2.tgz"
+  integrity sha512-nE5WqjbeEPsWQx4mtz81QGVvgHRhujTNIIZiMCx3Bj6CBFDafbk7XZp9ocmtzXUQaZ4bhtVS43R4FIiR4LboJw==
+  dependencies:
+    use-latest-callback "^0.1.5"
 
 react-native-vector-icons@^10.0.0:
   version "10.0.0"
