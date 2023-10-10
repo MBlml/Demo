@@ -39,8 +39,9 @@ export default class Menu extends Component {
           }} 
         />
         <Tab.Screen
-          name="Tab2"
+          name="Videos"
           component={TAB2}
+          initialParams={{ nombre: this.props.route.params.nombre }}
           //Material Icons
           /* options={{
             tabBarLabel: 'Tab2',
@@ -51,9 +52,9 @@ export default class Menu extends Component {
 
           //Evil Icons
           options={{
-            tabBarLabel: 'Mesagge',
+            tabBarLabel: 'Videos',
             tabBarIcon: ({ color, size }) => (
-              <EvilIcons name="comment" color={"black"} size={45} /> // Cambiamos a otro icono de EvilIcons
+              <EvilIcons name="sc-youtube" color={"black"} size={45} /> // Cambiamos a otro icono de EvilIcons
             ),
           }} 
         />

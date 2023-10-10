@@ -127,7 +127,7 @@ export default class Tab1 extends Component {
 
         <View style={{ marginTop: 0, marginBottom: 10 }}>
           <Text style={{ color: 'black', fontSize: 30, fontWeight: 'bold', marginLeft: 50 }}>Lista de Trabajadores</Text>
-          <FlatList style={{ backgroundColor: "#e27743", marginTop: 10, width: 380, height: '100%' }}
+          <FlatList style={{ backgroundColor: "#e27743", marginTop: 10, width: 400, height: '100%' }}
             data={this.state.dataSource}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={() => this.abrirPerfil(item)}
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e27743',
     color: 'red',
     padding: 10,
-    marginTop: 50,
+    marginTop: 55,
     height: 700,
     width: 150,
   },
