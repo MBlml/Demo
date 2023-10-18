@@ -7,6 +7,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import TAB1 from "./Tab1";
 import TAB2 from "./Tab2";
+import TAB3 from "./Tab3";
 
 export default class Menu extends Component {
   constructor(props) {
@@ -55,6 +56,26 @@ export default class Menu extends Component {
             tabBarLabel: 'Videos',
             tabBarIcon: ({ color, size }) => (
               <EvilIcons name="sc-youtube" color={"black"} size={45} /> // Cambiamos a otro icono de EvilIcons
+            ),
+          }} 
+        />
+        <Tab.Screen
+          name="Mapa"
+          component={TAB3}
+          initialParams={{ nombre: this.props.route.params.nombre }}
+          //Material Icons
+          /* options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="map-marker" color={"red"} size={size} />
+            ),
+          }}  */
+
+          //Evil Icons
+          options={{
+            tabBarLabel: 'Mapa',
+            tabBarIcon: ({ color, size }) => (
+              <EvilIcons name="location" color={"black"} size={35} /> // Cambiamos a EvilIcons
             ),
           }} 
         />
