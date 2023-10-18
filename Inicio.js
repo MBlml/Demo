@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Touchable, TouchableOpacity,  Modal, TextInput, Alert } from 'react-native';
 import { NavigationContext } from '@react-navigation/native';
 
-//la importacion de lo que usemos
-
 export default class Inicio extends Component {
   static contextType = NavigationContext;
   constructor(props) {
@@ -127,7 +125,7 @@ export default class Inicio extends Component {
                 borderColor: "#e27743",
                 backgroundColor: "#e27743",
                 marginLeft: 30,
-                marginTop: 520,
+                marginTop: 10,
                 width: 340,
                 height: 250,
                 borderRadius: 30,
@@ -282,4 +280,3 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
 });
-
