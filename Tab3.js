@@ -1,12 +1,52 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, FlatList, Text, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, FlatList, Text, TouchableOpacity, Image, Dimensions } from 'react-native';
 import MenuDrawer from 'react-native-side-drawer';
 import { WebView } from 'react-native-webview';
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import MapViewDirections from 'react-native-maps-directions';
 
+const GOOGLE_MAPS_APIKEY = 'AIzaSyCwmihmqF3fdfrie-7oTF9owVxrmlCpKtw';
 
+const CUCEICOORDS = {
+  latitude: 20.65514,
+  longitude: -103.32545,
+  latitudeDelta: 0.015,
+  longitudeDelta: 0.0121
+}
 
-export default class VideoPlayer extends Component {
+const ESATADIOJALISCOCOORDS = {
+  latitude:20.70521,
+  longitude: -103.32819,
+}
+
+export const MARKERS_DATA = [
+  {
+    id: '1',
+    latitude: 20.65617705390352,
+    longitude: -103.32516121292288,
+    color: '#2F3136',
+    name: 'Edificio Alfa',
+    //direction: 'Carrer de Pujades, 100',
+  },
+  {
+    id: '2',
+    latitude: 20.658270650226928,
+    longitude: -103.3268111038433,
+    color: '#A3EAD8',
+    name: 'Edificio X',
+    //direction: 'Carrer de Pujades, 101',
+  },
+  {
+      id: '3',
+      latitude: 20.656448109986417,
+      longitude: -103.32522290372962,
+      color: '#A3EAD8',
+      name: 'Edificio Beta',
+      //direction: 'Carrer de Pujades, 101',
+    },
+];
+
+export default class TAB3 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,30 +92,43 @@ export default class VideoPlayer extends Component {
         <MapView
           provider={PROVIDER_GOOGLE} // remove if not using Google Maps
           style={styles.map}
-          region={{
-            latitude: 20.657520288847852,
-            longitude: -103.3243897574106,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121,
-          }}
-        >
-        <Marker
-        coordinate={{
-          latitude: 20.657520288847852,
-          longitude: -103.3243897574106,
-        }}
-        title="CUCEI"
-        description="Centro Universitario de Ciencias Exactas e Ingenierias"
-        />
-        <Marker
-        coordinate={{
-          latitude: 20.656274,
-          longitude: -103.325242,
-        }}
-        title="UCT2-LC04"
-        description="Aula del curso Programacion para internet"
-        />
-        </MapView>
+          /*region={{
+                latitude: LATITUDE,
+                longitude: LONGITUDE,
+                latitudeDelta: 0.015,
+                longitudeDelta: 0.0121,
+          }} */
+          region={CUCEICOORDS}
+          showsUserLocation={true}
+          followsUserLocation={true}
+          >
+          {MARKERS_DATA.map((marker) => (
+          <Marker
+              key={marker.id}
+              coordinate={{
+              latitude: marker.latitude,
+              longitude: marker.longitude,
+              }}
+              title={marker.name}
+              description='Esto es en Cucei'
+          ></Marker>
+          ))}
+          <MapViewDirections
+            /* origin={{latitude:20.65752028847852,
+                    longitude: -103.324389574106,}}
+            destination={{latitude:20.70521,
+                          longitude: -103.32819,}} */
+            origin={CUCEICOORDS}
+            destination={ESATADIOJALISCOCOORDS}
+            apikey={GOOGLE_MAPS_APIKEY}
+            strokeWidth={5}
+            strokeColor='lightblue'
+            onReady={result => {
+              console.log(`La distancia entre CUCEI y el Estadio Jalisco es de: ${result.distance} km`)
+              console.log(`La duración del recorrido es de: ${result.duration} min.`)
+            }}
+          />
+      </MapView>
         <MenuDrawer
           open={this.state.open}
           position={'left'}
